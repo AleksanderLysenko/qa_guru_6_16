@@ -1,42 +1,25 @@
-import os
-
-from selene import be, have
-from selene.support.shared import browser
+from qa_guru_6_10.pages.registration_page import RegistrationPage
 
 
 def test_hard(browser_size):
     # fill form
-    browser.open('https://demoqa.com/automation-practice-form')
-    browser.element('#firstName').type('Alex')
-    browser.element('#lastName').type('Lys')
-    browser.element('#userEmail').type('example@yandex.ru')
-    browser.element('.custom-radio [for=gender-radio-1]').click()
-    browser.element('#userNumber').type('1234567890')
-    browser.element('#dateOfBirthInput').click()
-    browser.element('[class="react-datepicker__year-select"]').click().type("1992").click()
-    browser.element('[class="react-datepicker__month-select"]').click().type("January").click()
-    browser.element('[aria-label="Choose Sunday, January 5th, 1992"]').click()
-    browser.element('#subjectsInput').type('economics').press_enter()
-    browser.element('[for=hobbies-checkbox-1]').click()
-    browser.element('[for=hobbies-checkbox-3]').click()
-    browser.element('#uploadPicture').send_keys(os.path.abspath("images/Skrik.jpg"))
-    browser.element('#currentAddress').type('godovikova 9')
-    browser.element('#react-select-3-input').type('NCR').press_enter()
-    browser.element('#react-select-4-input').type('Delhi').press_enter()
-    browser.element('#submit').should(be.visible).press_enter()
+    registration_page = RegistrationPage()
+    registration_page.open_browser()
+    registration_page.fill_first_name('Alex')
+    registration_page.fill_second_name('Lys')
+    registration_page.fill_email('example@yandex.ru')
+    registration_page.choise_gender('Male')
+    registration_page.fill_phone_number('1234567890')
+    registration_page.fill_date_of_birth('1992', 'January', '05')
+    registration_page.choise_subject('economics')
+    registration_page.choise_hobbie('Sports')
+    registration_page.upload_photo('Skrik.jpg')
+    registration_page.fill_address('godovikova 9')
+    registration_page.choise_state('NCR')
+    registration_page.choise_city('Delhi')
+    registration_page.submit()
 
     # check form
-    browser.element('[class="modal-title h4"]').should(have.text('Thanks for submitting the form'))
-    browser.all('.modal-body tr th')[0].should(have.exact_text('Label'))
-    browser.all('.modal-body tr th')[1].should(have.text('Values'))
-    browser.all('.modal-body tr td')[1].should(have.text('Alex Lys'))
-    browser.all('.modal-body tr td')[3].should(have.text('example@yandex.ru'))
-    browser.all('.modal-body tr td')[5].should(have.exact_text('Male'))
-    browser.all('.modal-body tr td')[7].should(have.text('1234567890'))
-    browser.all('.modal-body tr td')[9].should(have.text('05 January,1992'))
-    browser.all('.modal-body tr td')[11].should(have.text('Economics'))
-    browser.all('.modal-body tr td')[13].should(have.text('Sports, Music'))
-    browser.all('.modal-body tr td')[15].should(have.text('Skrik.jpg'))
-    browser.all('.modal-body tr td')[17].should(have.text('godovikova 9'))
-    browser.all('.modal-body tr td')[19].should(have.text('NCR Delhi'))
-    
+    registration_page.should_registered_user_with('Alex Lys', 'example@yandex.ru', 'Male', '1234567890',
+                                                  '05 January,1992', 'Economics', 'Sports', 'Skrik.jpg', 'godovikova 9',
+                                                  'NCR Delhi')
