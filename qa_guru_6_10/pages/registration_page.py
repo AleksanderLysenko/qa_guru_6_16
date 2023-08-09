@@ -35,10 +35,10 @@ class RegistrationPage:
         ).click()
         return self
 
-    def choise_subject(self, subject):
+    def choise_subjects(self, subject):
         browser.element('#subjectsInput').type(subject).press_enter()
 
-    def choise_hobbie(self, hobbie):
+    def choise_hobbies(self, hobbie):
         browser.all('.custom-checkbox').element_by(have.exact_text(hobbie)).click()
 
     def upload_photo(self, photo):
@@ -56,7 +56,7 @@ class RegistrationPage:
     def submit(self):
         browser.element('#submit').should(be.visible).press_enter()
 
-    def should_registered_user_with(self, full_name, email, gender, phone_number, date_of_birth, subject, hobbie, photo, address,
+    def should_registered_user_with(self, full_name, email, gender, phone_number, date_of_birth, subjects, hobbies, photo, address,
                                     state_city):
         browser.element('.table').all('td').even.should(have.exact_texts(
             full_name,
@@ -64,8 +64,8 @@ class RegistrationPage:
             gender,
             phone_number,
             date_of_birth,
-            subject,
-            hobbie,
+            subjects,
+            hobbies,
             photo,
             address,
             state_city
