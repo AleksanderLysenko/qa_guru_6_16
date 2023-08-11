@@ -1,4 +1,5 @@
 pytest==7.4.0
-selene==2.0.0rc3.post3
-allure-pytest
+selene==2.0.0rc4
+allure-pytest==2.13.2
 python-dotenv==0.20.0
+selenium
