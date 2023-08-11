@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 
-from qa_guru_6_10.pages.registration_page import RegistrationPage
+from qa_guru_6_12.pages.registration_page import RegistrationPage
 
 
 @allure.tag("web")

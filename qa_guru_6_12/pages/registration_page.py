@@ -3,7 +3,7 @@ import os
 from selene import be, have
 from selene.support.shared import browser
 
-from qa_guru_6_10 import resources
+from qa_guru_6_12 import resources
 
 
 class RegistrationPage:
