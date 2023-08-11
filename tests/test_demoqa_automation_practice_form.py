@@ -9,7 +9,7 @@ from qa_guru_6_12.pages.registration_page import RegistrationPage
 @allure.label("owner", "lysenko")
 @allure.feature("Проверка web-формы регистрации")
 @allure.story("test_steps")
-def test_hard(browser_size):
+def test_hard(setup_browser):
     # fill form
     registration_page = RegistrationPage()
     with allure.step('Открываем форму регистрации'):
