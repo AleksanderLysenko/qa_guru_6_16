@@ -1,7 +1,7 @@
 from selene import be, have
 from selene.support.shared import browser
 
-from qa_guru_6_13 import resources
+from qa_guru_6_16 import resources
 
 
 class RegistrationPage:
