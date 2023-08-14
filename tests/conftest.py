@@ -27,11 +27,9 @@ def load_env():
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
-    browser_name = request.config.getoption('--browser_name')
-    browser_name = browser_name if browser_name != "" else DEFAULT_BROWSER_NAME
     options = Options()
     selenoid_capabilities = {
-        "browserName": browser_name,
+        "browserName": "chrome",
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
