@@ -1,7 +1,7 @@
 {
   "base": {
     "logo": "",
-    "project": "qa_guru_6_13",
+    "project": "qa_guru_6_16",
     "environment": "some env",
     "comment": "some comment",
     "reportLink": "",
@@ -10,7 +10,7 @@
     "enableChart": true
   },
   "telegram": {
-    "token": "token",
+    "token": "6045069992:AAFq6lX-nyOAcrSUjFMWK7_W979OGQVG6Hc",
     "chat": "-1001974845678",
     "replyTo": ""
   }
