@@ -12,6 +12,7 @@ DEFAULT_BROWSER_VERSION = "100.0"
 DEFAULT_BROWSER_NAME = "chrome"
 
 token = os.getenv('TOKEN')
+chat_id = os.getenv('CHAT_ID')
 
 
 def pytest_addoption(parser):
